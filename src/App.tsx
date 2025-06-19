@@ -14,7 +14,7 @@ interface Meme {
 }
 
 function App() {
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  // const [imageFile, setImageFile] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState('');
   const [style, setStyle] = useState('sarcastic');
   const [context, setContext] = useState('');
@@ -49,7 +49,7 @@ function App() {
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      setImageFile(file);
+      // setImageFile(file);
       const url = URL.createObjectURL(file);
       setImageUrl(url);
     }
