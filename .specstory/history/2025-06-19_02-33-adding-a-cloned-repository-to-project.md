@@ -44,3 +44,140 @@ Let me know, and I can give you the exact commands or automate the process for y
 
 ---
 
+_**User**_
+
+ok, I have them both pushed. Do I need to update my Package to run both? 
+
+---
+
+_**Assistant**_
+
+Great! Now that you have both repositories in your project, whether you need to update your package configuration depends on:
+
+1. **What language and build system you are using** (e.g., Node.js with `package.json`, Python with `requirements.txt`, Go with `go.mod`, etc.)
+2. **How you want to use the code from the cloned repo** (e.g., import as a library, run as a separate service, etc.)
+
+### For Go Projects
+
+Since the repo you cloned (`HackNightJun18`) is a Go project, here’s what you should consider:
+
+#### 1. If you want to use code from `HackNightJun18` in your own Go code:
+- You need to reference its packages in your code.
+- If you cloned it as a subdirectory, you can import it using its local path (if your Go module supports that).
+- If you want to use it as a module, you can add a `replace` directive in your `go.mod` file.
+
+**Example:**
+```go
+replace github.com/kashyapramin/HackNightJun18 => ./external/HackNightJun18
+```
+Then, you can import packages from it in your code.
+
+#### 2. If you want to run both projects separately:
+- You don’t need to update your package file unless you want to link them.
+- You can run each project from its own directory.
+
+#### 3. If you’re using another language (Node.js, Python, etc.):
+- Let me know your stack, and I’ll give you the right steps!
+
+---
+
+**Summary Table:**
+
+| Use Case                        | Update Package File? | What to Do?                                                                 |
+|----------------------------------|----------------------|-----------------------------------------------------------------------------|
+| Use code from cloned repo        | Yes                  | Add import/replace in `go.mod` or equivalent for your language              |
+| Run as separate app/service      | No                   | Just run each from its own directory                                        |
+| Use as a library (other language)| Yes                  | Add to `package.json`, `requirements.txt`, etc. as needed                   |
+
+---
+
+**Let me know:**
+- What language/build system are you using for your main project?
+- Do you want to use code from the cloned repo, or just run it separately?
+
+I’ll give you the exact steps for your setup!
+
+---
+
+_**User**_
+
+I need to get them both on Railway. Is it better to have them seperate? 
+
+---
+
+_**Assistant**_
+
+Great question! Here’s a clear breakdown for deploying both projects to Railway:
+
+---
+
+## Should You Deploy Them Separately or Together?
+
+### 1. **Separate Deployments (Recommended for Most Cases)**
+- **Each repo is its own Railway project/service.**
+- **Pros:**
+  - Each service can scale, restart, and deploy independently.
+  - Easier to manage environment variables and secrets.
+  - Cleaner logs and easier debugging.
+  - Follows best practices for microservices or multi-app setups.
+- **Cons:**
+  - Slightly more setup (but Railway makes this easy).
+
+### 2. **Single Deployment (Both in One Project)**
+- **Both repos live in one Railway project, possibly as subfolders.**
+- **Pros:**
+  - One deployment to manage.
+- **Cons:**
+  - Harder to manage, especially if both are servers or need to run at the same time.
+  - More complex build and start scripts.
+  - Not recommended unless the apps are tightly coupled and must run together.
+
+---
+
+## **Best Practice**
+**Deploy them as separate Railway projects/services.**  
+This is the standard approach for most modern cloud platforms, including Railway.
+
+---
+
+## **How to Deploy Both to Railway (Separately)**
+
+1. **Push each repo to its own GitHub repository** (or keep them in separate folders in your monorepo, but separate repos are easier).
+2. **On Railway:**
+   - Create a new project for each repo.
+   - Connect each Railway project to its respective GitHub repo.
+   - Set up build and start commands as needed (Railway usually auto-detects for Go, Node, etc.).
+   - Configure environment variables for each project as needed.
+
+---
+
+## **Summary Table**
+
+| Approach         | Recommended? | Pros                                    | Cons                                  |
+|------------------|--------------|-----------------------------------------|---------------------------------------|
+| Separate         | Yes          | Easy management, scaling, debugging     | Slightly more setup                   |
+| Single project   | No           | One deployment                          | Harder to manage, not scalable/flexible|
+
+---
+
+**Let me know if you want step-by-step instructions for deploying each repo to Railway!**  
+If you have a monorepo and want to deploy both from the same repo, let me know and I’ll explain that setup too.
+
+---
+
+_**User**_
+
+ok, drop the external stuff. I will just clone it directly in my repo for railway 
+
+---
+
+_**Assistant**_
+
+Perfect! If you’re cloning the other repo directly into your main repo (so both codebases are in one repository), here’s what you need to know for deploying to Railway:
+
+---
+
+##
+
+---
+
