@@ -1,0 +1,3 @@
+[submodule "external/HackNightJun18"]
+	path = external/HackNightJun18
+	url = https://github.com/kashyapramin/HackNightJun18.git
